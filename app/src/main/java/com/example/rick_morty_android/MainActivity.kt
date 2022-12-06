@@ -1,19 +1,17 @@
 package com.example.rick_morty_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.appcompat.app.AppCompatActivity
 import com.example.rick_morty_android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val note = listOf(
             Note(
                 image = "",
