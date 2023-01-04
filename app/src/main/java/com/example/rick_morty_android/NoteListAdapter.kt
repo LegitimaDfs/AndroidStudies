@@ -1,13 +1,18 @@
 package com.example.rick_morty_android
 
-import android.app.LauncherActivity
-import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rick_morty_android.activity.MainActivity
 import com.example.rick_morty_android.databinding.ListItemBinding
 import com.example.rick_morty_android.databinding.ListItemBinding.inflate
+import com.example.rick_morty_android.fragment.CharacterFragment
+import com.example.rick_morty_android.model.Note
 
 class NoteListAdapter(private val notes: List<Note>) :
     RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
@@ -32,10 +37,22 @@ class NoteListAdapter(private val notes: List<Note>) :
         //Adapter responsável por gerenciar a lista inteira. NoteViewHolder responsável por gerenciar item por item
         fun bind(note: Note) {
             //binding.imagePerfil.drawable
-            binding.titulo.text = note.texto
-            binding.descricao.text = note.texto
+            binding.titulo.text = note.titulo
+            binding.descricao.text = note.descricao
+            binding.container.setOnClickListener { view: View ->
+
+                view.findNavController()
+                    .navigate(R.id.action_characterFragment_to_selectedCharFragment)
+
+            }
         }
+
     }
 
+    fun onContainerClick(view: View) {
+        val fragmentTransaction = fragmentManager.beginTransaction()
+    }
 
 }
+
+
