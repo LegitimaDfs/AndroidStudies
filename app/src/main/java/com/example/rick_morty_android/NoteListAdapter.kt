@@ -41,17 +41,13 @@ class NoteListAdapter(private val notes: List<Note>) :
             binding.descricao.text = note.descricao
             binding.container.setOnClickListener { view: View ->
 
-                view.findNavController()
-                    .navigate(R.id.action_characterFragment_to_selectedCharFragment)
+                view.findNavController().navigate(R.id.action_characterFragment_to_selectedCharFragment)
 
             }
         }
 
     }
 
-    fun onContainerClick(view: View) {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-    }
 
 }
 

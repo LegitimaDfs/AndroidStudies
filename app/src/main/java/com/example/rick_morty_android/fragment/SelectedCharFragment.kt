@@ -27,7 +27,7 @@ class SelectedCharFragment : Fragment() {
         return binding.root
     }
 
-    val charName = binding.nomePersonagem
+
 
 
 

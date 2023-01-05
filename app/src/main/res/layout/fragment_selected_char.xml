@@ -12,6 +12,7 @@
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_margin="8dp"
+        android:src="@drawable/ic_people"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="5dp"
-        android:text=""
+        android:text="Rick"
         app:layout_constraintStart_toEndOf="@id/imagemPersonagem"
         app:layout_constraintTop_toTopOf="parent" />
 
