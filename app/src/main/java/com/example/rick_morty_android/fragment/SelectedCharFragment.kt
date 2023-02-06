@@ -1,13 +1,12 @@
 package com.example.rick_morty_android.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.rick_morty_android.R
-import com.example.rick_morty_android.databinding.FragmentCharacterBinding
+import androidx.fragment.app.Fragment
 import com.example.rick_morty_android.databinding.FragmentSelectedCharBinding
+import com.example.rick_morty_android.model.Note
 
 class SelectedCharFragment : Fragment() {
 
@@ -27,9 +26,14 @@ class SelectedCharFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.getParcelable<Note>("note").also {
+            binding.nomePersonagem.text = it?.titulo
+            binding.descPersonagem.text = it?.descricao
+        }
 
-
-
+    }
 
 
 }

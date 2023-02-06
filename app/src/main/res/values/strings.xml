@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">rick-morty-android</string>
+    <string name="app_name">Lista do Rick</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Adicionar Personagem</string>
+    <string name="search">Buscar Personagem</string>
 </resources>
