@@ -22,7 +22,8 @@
         android:layout_width="225sp"
         android:layout_height="wrap_content"
         android:paddingTop="5sp"
-        android:drawableStart="@drawable/ic_people"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/searchName"
         app:layout_constraintTop_toBottomOf="@id/searchDialogTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -32,9 +33,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:text="@string/search"
+        android:text="@string/searchName"
+        app:layout_constraintTop_toBottomOf="@id/searchDialogEdit"
+        app:layout_constraintStart_toEndOf="@id/searchCancelDialogButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/searchCancelDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/cancelButton"
         app:layout_constraintTop_toBottomOf="@id/searchDialogEdit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/searchDialogButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

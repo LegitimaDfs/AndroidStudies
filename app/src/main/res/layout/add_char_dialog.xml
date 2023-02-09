@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/addDialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/addDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addDialogName"
+        android:layout_width="225sp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_people"
+        android:hint="@string/addName"
+        android:minHeight="48dp"
+        android:padding="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addDialogTitle" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addDialogDescription"
+        android:layout_width="225sp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_people"
+        android:hint="@string/addDescription"
+        android:minHeight="48dp"
+        android:padding="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addDialogName" />
+
+    <Button
+        android:id="@+id/addCharDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addButton"
+        app:layout_constraintTop_toBottomOf="@id/addDialogDescription"
+        app:layout_constraintStart_toEndOf="@id/addCancelarDialogButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/addCancelarDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancelButton"
+        app:layout_constraintEnd_toStartOf="@id/addCharDialogButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addDialogDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

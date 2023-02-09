@@ -18,9 +18,11 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val fragmentManager = supportFragmentManager
 
+    //Variaveis da Dialog de pesquisar personagem
     lateinit var pesquisaDialog: Dialog
-    var pesquisaEditText = findViewById<EditText>(R.id.searchDialogEdit)
-    val pesquisaBotao = findViewById<Button>(R.id.searchDialogButton)
+
+    //Variaveis da Dialog de adicionar personagem
+    lateinit var addDialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +37,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        //Function que detecta qual dos itens da toolbar foi selecionado
         R.id.pesquisa -> {
-            Toast.makeText(this, "TODO", Toast.LENGTH_LONG).show()
+            displaySearchDialog()
             true
         }
 
         R.id.add -> {
-
+            displayAddDialog()
             true
         }
         else -> {
@@ -58,29 +61,45 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+    fun displayAddDialog() {
+        //Mostra o Dialog de adicionar personagem
+        addDialog = Dialog(this)
+        addDialog.setContentView(R.layout.add_char_dialog)
+        addDialog.setCancelable(true)
+        val addBotao = addDialog.findViewById<Button>(R.id.addCharDialogButton)
+        val addCancelBotao = addDialog.findViewById<Button>(R.id.addCancelarDialogButton)
 
+        addBotao.setOnClickListener {
+            //Adicionar personagem - TODO
+            Toast.makeText(this, "Adicionando", Toast.LENGTH_LONG).show()
+            addDialog.dismiss()
+        }
 
+        addCancelBotao.setOnClickListener { addDialog.dismiss() }
+        addDialog.show()
 
-    /*fun displayDialog() {
+    }
+
+    fun displaySearchDialog() {
+        //Mostra o Dialog de pesquisar por personagem
         pesquisaDialog = Dialog(this)
         pesquisaDialog.setContentView(R.layout.search_dialog)
         pesquisaDialog.setCancelable(true)
+        //val pesquisaEditText = pesquisaDialog.findViewById<EditText>(R.id.searchDialogEdit)
+        val pesquisaBotao = pesquisaDialog.findViewById<Button>(R.id.searchDialogButton)
+        val pesquisaCancelBotao = pesquisaDialog.findViewById<Button>(R.id.searchCancelDialogButton)
 
 
         pesquisaBotao.setOnClickListener {
-
+            //Pesquisar/filtrar personagens da RecyclerView - TODO
+            Toast.makeText(this, "Pesquisando", Toast.LENGTH_LONG).show()
+            pesquisaDialog.dismiss()
         }
 
+        pesquisaCancelBotao.setOnClickListener { pesquisaDialog.dismiss() }
         pesquisaDialog.show()
-    }
 
-    fun dataSearchKeep(){
-        var editText = pesquisaEditText.text.toString()
-        val characterName = findViewById<TextView>(R.id.nomePersonagem).toString()
-        if (editText == characterName) {
-            findViewById<ConstraintLayout>(R.id.cardSelChar)
-        }
-    }*/
+    }
 
 }
 

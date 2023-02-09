@@ -39,7 +39,7 @@ class NoteListAdapter(private val notes: List<Note>, val onEventClicked: (Note) 
             //binding.imagePerfil.drawable
             binding.titulo.text = note.titulo
             binding.descricao.text = note.descricao
-            binding.container.setOnClickListener {
+            binding.containerChar.setOnClickListener {
                 onEventClicked.invoke(note)
             }
         }

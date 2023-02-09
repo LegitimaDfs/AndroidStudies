@@ -3,5 +3,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add">Adicionar Personagem</string>
-    <string name="search">Buscar Personagem</string>
+    <string name="search">Pesquisar por personagens</string>
+    <string name="addName">Nome do personagem</string>
+    <string name="searchName">Buscar</string>
+    <string name="searchButton">Buscar</string>
+    <string name="addButton">Adicionar</string>
+    <string name="addDescription">Adicionar descrição</string>
+    <string name="cancelButton">Cancelar</string>
 </resources>
