@@ -17,13 +17,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/searchDialogEdit"
-        android:layout_width="225sp"
+    <SearchView
+        android:id="@+id/searchViewDialog"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5sp"
-        android:drawableStart="@drawable/ic_search"
-        android:hint="@string/searchName"
+        android:layout_margin="8sp"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/searchName"
         app:layout_constraintTop_toBottomOf="@id/searchDialogTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:text="@string/searchName"
-        app:layout_constraintTop_toBottomOf="@id/searchDialogEdit"
+        app:layout_constraintTop_toBottomOf="@id/searchViewDialog"
         app:layout_constraintStart_toEndOf="@id/searchCancelDialogButton"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:text="@string/cancelButton"
-        app:layout_constraintTop_toBottomOf="@id/searchDialogEdit"
+        app:layout_constraintTop_toBottomOf="@id/searchViewDialog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/searchDialogButton"/>
 

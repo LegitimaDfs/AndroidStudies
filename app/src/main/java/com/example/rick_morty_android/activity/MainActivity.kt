@@ -3,16 +3,20 @@ package com.example.rick_morty_android.activity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.example.rick_morty_android.NoteListAdapter
 import com.example.rick_morty_android.R
 import com.example.rick_morty_android.databinding.ActivityMainBinding
 import com.example.rick_morty_android.fragment.SelectedCharFragment
+import com.example.rick_morty_android.fragment.setupAdapter
+import com.example.rick_morty_android.model.Note
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -23,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
     //Variaveis da Dialog de adicionar personagem
     lateinit var addDialog: Dialog
+
+    lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,16 +72,34 @@ class MainActivity : AppCompatActivity() {
         addDialog = Dialog(this)
         addDialog.setContentView(R.layout.add_char_dialog)
         addDialog.setCancelable(true)
+        val addNome = addDialog.findViewById<TextInputEditText>(R.id.addDialogName)
+        val addDesc = addDialog.findViewById<TextInputEditText>(R.id.addDialogDescription)
         val addBotao = addDialog.findViewById<Button>(R.id.addCharDialogButton)
         val addCancelBotao = addDialog.findViewById<Button>(R.id.addCancelarDialogButton)
 
         addBotao.setOnClickListener {
             //Adicionar personagem - TODO
-            Toast.makeText(this, "Adicionando", Toast.LENGTH_LONG).show()
+            val snackbar: Snackbar
+
+            if (addNome.text.toString().isNotEmpty() && addDesc.text.toString().isNotEmpty()) {
+                //Toast.makeText(this, "Adicionando", Toast.LENGTH_LONG).show()
+                //Note("", addNome.text.toString(), addDesc.text.toString())
+                snackbar =
+                    Snackbar.make(binding.root, "Personagem adicionado", Snackbar.LENGTH_LONG)
+                snackbar.setAction("Desfazer", View.OnClickListener {
+                    Toast.makeText(this, "Personagem removido", Toast.LENGTH_SHORT).show()
+                })
+                snackbar.show()
+
+            }
+
+
             addDialog.dismiss()
         }
 
-        addCancelBotao.setOnClickListener { addDialog.dismiss() }
+        addCancelBotao.setOnClickListener {
+            addDialog.dismiss()
+        }
         addDialog.show()
 
     }
@@ -85,13 +109,27 @@ class MainActivity : AppCompatActivity() {
         pesquisaDialog = Dialog(this)
         pesquisaDialog.setContentView(R.layout.search_dialog)
         pesquisaDialog.setCancelable(true)
-        //val pesquisaEditText = pesquisaDialog.findViewById<EditText>(R.id.searchDialogEdit)
+        recyclerView = findViewById(R.id.recyclerView)
+
+        val pesquisaSearchView = pesquisaDialog.findViewById<SearchView>(R.id.searchViewDialog)
         val pesquisaBotao = pesquisaDialog.findViewById<Button>(R.id.searchDialogButton)
         val pesquisaCancelBotao = pesquisaDialog.findViewById<Button>(R.id.searchCancelDialogButton)
 
+        pesquisaSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
 
         pesquisaBotao.setOnClickListener {
-            //Pesquisar/filtrar personagens da RecyclerView - TODO
+            //Pesquisar/filtrar personagens da RecyclerView - TODO("Not yet implemented")
             Toast.makeText(this, "Pesquisando", Toast.LENGTH_LONG).show()
             pesquisaDialog.dismiss()
         }

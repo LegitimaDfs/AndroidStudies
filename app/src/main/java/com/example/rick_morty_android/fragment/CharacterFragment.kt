@@ -40,6 +40,8 @@ class CharacterFragment : Fragment() {
         setupView()
     }
 
+
+
     private fun setupView() {
         val note = listOf(
             Note(
@@ -59,7 +61,8 @@ class CharacterFragment : Fragment() {
 
 }
 
-private fun setupAdapter(binding: FragmentCharacterBinding, listNote: List<Note>) {
+fun
+        setupAdapter(binding: FragmentCharacterBinding, listNote: List<Note>) {
     binding.recyclerView.adapter = NoteListAdapter(notes = listNote, onEventClicked = {
         val bundle = bundleOf("note" to it)
         binding.recyclerView.findNavController()
